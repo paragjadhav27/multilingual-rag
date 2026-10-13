@@ -63,8 +63,20 @@ Streamlit will print a local URL to open in your browser. Upload a document, cho
 The provider defaults are configured in `config.py`; supported `LLM_PROVIDER` values are `gemini`, `groq`, `openrouter`, and `ollama`.
 
 - **Gemini, Groq, or OpenRouter:** set `LLM_PROVIDER`, choose a model supported by that provider in `LLM_MODEL`, and set the provider key in `LLM_API_KEY`.
+  For Gemini, `LLM_MODEL=gemini-flash-latest` with `LLM_FALLBACK_MODEL=gemini-flash-lite-latest` works well; the fallback runs on separate capacity, so it usually answers when the main model reports being overloaded.
 - **Ollama:** start Ollama, download a model with `ollama pull <model>`, then set `LLM_PROVIDER=ollama` and `LLM_MODEL` to that model name. An API key is not required.
 - **Other OpenAI-compatible endpoint:** set `LLM_BASE_URL` to its API base URL, then configure `LLM_MODEL` and any required `LLM_API_KEY`.
+
+### Deploying on Streamlit Community Cloud
+
+Create an app from this repository with `app.py` as the main file and Python 3.11. Streamlit Cloud has no `.env` file; put the same settings in **Advanced settings → Secrets** instead, and the app reads them as environment variables:
+
+```toml
+LLM_PROVIDER = "gemini"
+LLM_MODEL = "gemini-flash-latest"
+LLM_FALLBACK_MODEL = "gemini-flash-lite-latest"
+LLM_API_KEY = "your-key"
+```
 
 ## Configuration
 
