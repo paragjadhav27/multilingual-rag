@@ -1,0 +1,7 @@
+[server]
+# Streamlit's file watcher scans every imported module after each run. With the
+# heavy transformers/torch stack this keeps the app busy for a while after the
+# first document is processed, and a microphone recording made in that window
+# has its upload cancelled (the spoken question is silently lost).
+# Restart the app manually after editing the code.
+fileWatcherType = "none"
