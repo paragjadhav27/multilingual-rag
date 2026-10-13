@@ -8,7 +8,7 @@ BhashaRAG is a Streamlit retrieval-augmented generation (RAG) app. It extracts a
 
 The app is deployed and available at:
 
-- https://bhasha-rag.streamlit.app/
+- https://multilingual-rag1.streamlit.app/
 
 Use the live deployment for quick testing without running the app locally. The local setup instructions below are still useful for development, customization, or when you want to run your own instance with a different model or environment configuration.
 
